@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} Add {% endblock %}
+{% block content %}
+<div class="add-table">
+    <h2>Add the cafe</h2>
+     <form action="{{url_for('cafes.add')}}" method="POST">
+        <h4>Name of cafe</h4>
+        <input type="text" name="name" id="name" placeholder="name">
+        <h4>Location of cafe</h4>
+        <input type="text" name="location" id="location" placeholder="location">
+        <h4>Power socket </h4>
+        <label for="101">
+            <input type="radio" value="yes" name="power_socket" id="101">Yes
+            <input type="radio" value="no" name="power_socket" id="102">No
+
+        </label>
+        <h4>Rating</h4>
+        <input type="text" name="rating" id="rating" placeholder="rating">
+        <h4>Opening Time</h4>
+        <input type="text" name="opening_time" id="opening_time" placeholder="opening_time">
+        <input type="submit" value="add">
+     </form>
+
+</div>
+{% endblock %}

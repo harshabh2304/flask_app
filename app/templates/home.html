@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="home-table">
+    {% if cafes %}
+    <table class="cafe-table">
+        <thead>
+            <tr>
+                <th>SNO</th>
+                <th>NAME</th>
+                <th>LOCATION</th>
+                <th>POWER SOCKET</th>
+                <th>RATING</th>
+                <th>OPENING TIME</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cafe in cafes %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ cafe.name }}</td>
+                <td>{{ cafe.location }}</td>
+
+                <td>
+                    {% if cafe.power_socket %}
+                    <h4>Yes</h4>
+                    {% else %}
+                    <h4>No</h4>
+                    {% endif %}
+                </td>
+                <td>{{ cafe.rating }}</td>
+                <td>{{ cafe.opening_time }}</td>
+
+            </tr>
+
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% else %}
+    <h3>No cafes are added</h3>
+    {% endif %}
+</div>
+{% endblock %}
